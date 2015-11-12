@@ -13,6 +13,7 @@ get_header(); ?>
 				<header class="entry-header">
 					<h1 class="entry-title"><?php echo 'Member Directory'; ?></h1>
 				</header>
+				<div class="lrhoa_member_data">
 					<ul>
 						<?php
 						$users = new WP_User_Query( array(
@@ -30,6 +31,7 @@ get_header(); ?>
 						}
 						?>
 					</ul>
+				</div>
 			</article>
 		</div>
 	</div><!-- #content -->

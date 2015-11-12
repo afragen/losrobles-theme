@@ -25,11 +25,13 @@ get_header(); ?>
 						<h1 class="entry-title"><?php echo $post->post_title; ?></h1>
 					</header>
 
-						<?php get_template_part( 'content', 'page' ); ?>
-					<?php endwhile; // end of the loop. ?>
+					<?php get_template_part( 'content', 'page' ); ?>
+				<?php endwhile; // end of the loop. ?>
 
-					<?php $default_dir = "/lrhoa-docs/" . $name . "/"; ?>
+				<?php $default_dir = "/lrhoa-docs/" . $name . "/"; ?>
+				<div class="lrhoa_member_data">
 					<?php include_once( locate_template( './templates/list-files.php' ) ); ?>
+				</div>
 			</article>
 		</div>
 	</div><!-- #content -->

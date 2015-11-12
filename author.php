@@ -17,23 +17,19 @@ $member = get_user_by( 'slug', $author_name );
 					<header class="entry-header">
 						<h1 class="entry-title"><?php echo 'Member Contact Information'; ?></h1>
 					</header>
-
-				<?php
-				/* Start the Loop */
-
-					if ( $pods ) {
+					<div class="lrhoa_member_data">
+						<?php  if ( $pods ) {
 						$my_pods_user = pods( 'user', $member->ID );
 
-						echo '<div class="lrhoa_member_data">';
 						print( esc_attr( $member->data->display_name ) . '<br>' );
 						print( esc_attr( $my_pods_user->field('street_number') ) . ' Los Robles<br>' );
 						print( esc_attr( $my_pods_user->field('phone_number') ). '<br>' );
 						print( '<a href="mailto:">' . esc_attr( $member->data->user_email ) . '</a><br>' );
 
 						print( 'Emergency Contact: ' . esc_attr( $my_pods_user->field('emergency_contact_phone') ) . '<br>' );
-						echo '</div>';
-					}
-				?>
+						}
+						?>
+					</div>
 				</article>
 			</div>
 
