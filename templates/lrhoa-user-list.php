@@ -23,7 +23,7 @@ get_header(); ?>
 						) );
 						if ( ! empty( $users->results ) ) {
 							foreach ( $users->results as $user ) {
-								echo '<li><a href="' . esc_url( get_author_posts_url( $user->ID ) ) . '">' . esc_attr( $user->last_name ) . ', ' . esc_attr( $user->first_name ) . '</a></li>';
+								echo '<li><a href="' . esc_url( get_author_posts_url( $user->ID ) ) . '">' . esc_attr( $user->first_name ) . ' ' . esc_attr( $user->last_name ) . '</a></li>';
 							}
 						} else {
 								echo 'No members found.';
