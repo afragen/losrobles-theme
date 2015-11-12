@@ -6,24 +6,27 @@
 get_header();
 
 $pods = pods( 'user', get_query_var( 'post_type_author' ), true );
-$user = get_user_by( 'slug', $author_name );
+$member = get_user_by( 'slug', $author_name );
 
 ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<p>I really need to work on this.</p>
-
 				<?php
 				/* Start the Loop */
-				//note: this loop will have no posts if author has no posts. If using 'pods_s_show_authors_without_posts' output is handled below.
 
 					if ( $pods ) {
+						$my_pods_user = pods( 'user', $member->ID );
 
-						//fetch current post in loop
-						$pods = $pods->fetch( $user->ID );
-						echo $user->data->display_name;
+						echo '<div class="lrhoa_member_data">';
+						echo $member->data->display_name . '<br>';
+						echo $my_pods_user->field('street_number') . ' Los Robles<br>';
+						echo $my_pods_user->field('phone_number') . '<br>';
+						echo '<a href="mailto:">' . $member->data->user_email . '</a><br>';
+
+						echo 'Emergency Contact: ' . $my_pods_user->field('emergency_contact_phone') . '<br>';
+						echo '</div>';
 					}
 				?>
 
