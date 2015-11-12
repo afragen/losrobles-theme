@@ -6,13 +6,13 @@ Template Name: Users List
 
 get_header(); ?>
 
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
+<div id="primary" class="content-area">
+	<div id="content" role="main">
+		<div class="entry-content">
 			<article>
 				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'Member Directory', 'twentysixteen' ); ?></h1>
+					<h1 class="entry-title"><?php echo 'Member Directory'; ?></h1>
 				</header>
-				<div class="entry-content">
 					<ul>
 						<?php
 						$users = new WP_User_Query( array(
@@ -30,10 +30,10 @@ get_header(); ?>
 						}
 						?>
 					</ul>
-				</div>
 			</article>
-		</div><!-- #content -->
-	</div><!-- #primary -->
+		</div>
+	</div><!-- #content -->
+</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
