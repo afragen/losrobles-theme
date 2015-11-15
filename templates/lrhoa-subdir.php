@@ -28,9 +28,9 @@ get_header(); ?>
 					<?php get_template_part( 'content', 'page' ); ?>
 				<?php endwhile; // end of the loop. ?>
 
-				<?php $default_dir = "/lrhoa-docs/" . $name . "/"; ?>
+				<?php $default_dir = "/lrhoa-docs/" . $pagename . "/"; ?>
 				<div class="lrhoa_member_data">
-					<?php if ( is_user_logged_in() ): ?>
+					<?php if ( is_user_logged_in() || 'public-documents' === $pagename ): ?>
 						<?php include_once( locate_template( './templates/list-files.php' ) ); ?>
 					<?php else: ?>
 						<p>You must be logged in to view this page.</p>
