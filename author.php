@@ -18,7 +18,7 @@ $member = get_user_by( 'slug', $author_name );
 						<h1 class="entry-title"><?php echo 'Member Contact Information'; ?></h1>
 					</header>
 					<div class="lrhoa_member_data">
-						<?php  if ( $pods ) {
+						<?php  if ( $pods && is_user_logged_in() ) {
 						$my_pods_user = pods( 'user', $member->ID );
 
 						print( esc_attr( $member->data->display_name ) . '<br>' );
@@ -27,6 +27,8 @@ $member = get_user_by( 'slug', $author_name );
 						print( '<a href="mailto:">' . esc_attr( $member->data->user_email ) . '</a><br>' );
 
 						print( 'Emergency Contact: ' . esc_attr( $my_pods_user->field('emergency_contact_phone') ) . '<br>' );
+						} else {
+							print( 'You must log in to view this page.' );
 						}
 						?>
 					</div>

@@ -22,12 +22,12 @@ get_header(); ?>
 								'fields'   => 'all_with_meta',
 								'role'     => 'members',
 						) );
-						if ( ! empty( $users->results ) ) {
+						if ( ! empty( $users->results ) && is_user_logged_in() ) {
 							foreach ( $users->results as $user ) {
 								echo '<li><a href="' . esc_url( get_author_posts_url( $user->ID ) ) . '">' . esc_attr( $user->first_name ) . ' ' . esc_attr( $user->last_name ) . '</a></li>';
 							}
 						} else {
-								echo 'No members found.';
+							echo 'No members found. You must be logged in to view this page.';
 						}
 						?>
 					</ul>

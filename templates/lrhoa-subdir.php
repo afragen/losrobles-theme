@@ -30,7 +30,11 @@ get_header(); ?>
 
 				<?php $default_dir = "/lrhoa-docs/" . $name . "/"; ?>
 				<div class="lrhoa_member_data">
-					<?php include_once( locate_template( './templates/list-files.php' ) ); ?>
+					<?php if ( is_user_logged_in() ): ?>
+						<?php include_once( locate_template( './templates/list-files.php' ) ); ?>
+					<?php else: ?>
+						<p>You must be logged in to view this page.</p>
+					<?php endif ?>
 				</div>
 			</article>
 		</div>
