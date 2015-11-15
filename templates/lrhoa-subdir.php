@@ -30,10 +30,12 @@ get_header(); ?>
 
 				<?php $default_dir = "/lrhoa-docs/" . $pagename . "/"; ?>
 				<div class="lrhoa_member_data">
-					<?php if ( is_user_logged_in() || 'public-documents' === $pagename ): ?>
+					<?php if ( ( is_user_logged_in() && current_user_can( 'members' ) ) ||
+					           ( is_user_logged_in() && 'minutes' === $pagename ) ||
+					           'public-documents' === $pagename ): ?>
 						<?php include_once( locate_template( './templates/list-files.php' ) ); ?>
 					<?php else: ?>
-						<p>You must be logged in to view this page.</p>
+						<p>You do not have permission to view this page.</p>
 					<?php endif ?>
 				</div>
 			</article>
