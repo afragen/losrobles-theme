@@ -36,6 +36,9 @@ function list_directory( $dir ) {
 echo "\t" . '<ul>' . "\r\n\t";
 $directory_array = list_directory( WP_CONTENT_DIR . $default_dir );
 
+if ( 'minutes' === $name ) {
+	 rsort( $directory_array );
+}
 foreach ( $directory_array as $fn ) {
 	$fn_ext = $fn;
 	$fn = file_ext_strip( $fn );
