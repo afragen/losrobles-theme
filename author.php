@@ -18,7 +18,7 @@ $member = get_user_by( 'slug', $author_name );
 						<h1 class="entry-title"><?php echo 'Member Contact Information'; ?></h1>
 					</header>
 					<div class="lrhoa_member_data">
-						<?php  if ( $pods && is_user_logged_in() ) {
+						<?php  if ( $pods && is_user_logged_in() && current_user_can( 'members' ) ) {
 						$my_pods_user = pods( 'user', $member->ID );
 
 						print( esc_attr( $member->data->display_name ) . '<br>' );
