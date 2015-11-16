@@ -14,7 +14,9 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
+get_header();
+global $post, $pagename;
+?>
 
 <div id="primary" class="content-area">
 	<div id="content" role="main">

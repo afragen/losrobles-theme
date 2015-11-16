@@ -4,6 +4,7 @@
  */
 
 get_header();
+global $author_name;
 
 $pods = pods( 'user', get_query_var( 'post_type_author' ), true );
 $member = get_user_by( 'slug', $author_name );

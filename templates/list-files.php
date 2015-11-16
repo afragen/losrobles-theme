@@ -36,7 +36,8 @@ function list_directory( $dir ) {
 echo "\t" . '<ul>' . "\r\n\t";
 $directory_array = list_directory( WP_CONTENT_DIR . $default_dir );
 
-if ( 'minutes' === $name ) {
+global $pagename;
+if ( 'minutes' === $pagename ) {
 	 rsort( $directory_array );
 }
 foreach ( $directory_array as $fn ) {
