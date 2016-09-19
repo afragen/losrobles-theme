@@ -16,20 +16,15 @@ function file_title_case( $filename ) {
 }
 
 function list_directory( $dir ) {
-	$narray     = array();
-	$dir_handle = @opendir( $dir ) or die( "Unable to open $dir" );
-	$i          = 0;
-	$skip_files = array( ".DS_Store", ".", "..", ".htaccess", "index.php" );
+	$dir_list = array();
 
-	while( false !== ( $file = readdir( $dir_handle ) ) ) {
-		if ( ! in_array( $file, $skip_files ) ) {
-			$narray[ $i ] = $file;
-			$i++;
-		}
+	// Only add .txt/.pdf files
+	foreach ( glob( $dir . "*.{txt,pdf}", GLOB_BRACE ) as $file ) {
+		array_push( $dir_list, basename( $file ) );
 	}
-	closedir( $dir_handle ); //closing the directory
-	natcasesort( $narray ); // case-insensitive sort
-	return $narray;
+	natcasesort( $dir_list ); // case-insensitive sort
+
+	return $dir_list;
 }
 
 // print out html
