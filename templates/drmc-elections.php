@@ -12,24 +12,24 @@
  * @package WordPress
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
-*/
+ */
 
-$args = array(
+$args = [
 	'post_type' => 'drmc_voting',
-	'tax_query' => array(
-		array(
+	'tax_query' => [
+		[
 			'taxonomy' => 'department',
 			'field'    => 'slug',
-			'terms'    => array( 'medical-staff' )
-			),
-		array(
+			'terms'    => [ 'medical-staff' ],
+		],
+		[
 			'taxonomy' => 'department',
 			'field'    => 'slug',
-			'terms'    => array( 'voting-over' ),
+			'terms'    => [ 'voting-over' ],
 			'operator' => 'NOT IN',
-			),
-		)
-);
+		],
+	],
+];
 
 get_header(); ?>
 
@@ -48,12 +48,15 @@ get_header(); ?>
 			</div>
 			<?php $my_query = new WP_Query( $args ); ?>
 
-			<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+			<?php
+			while ( $my_query->have_posts() ) :
+				$my_query->the_post();
+				?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
-				<?php 
+				<?php
 					global $withcomments;
-					$withcomments = true; 
+					$withcomments = true;
 					comments_template();
 				?>
 

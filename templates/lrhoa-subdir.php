@@ -22,7 +22,10 @@ global $post, $pagename;
 	<div id="content" role="main">
 		<div class="entry-content">
 			<article>
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					?>
 					<header class="entry-header">
 						<h1 class="entry-title"><?php echo $post->post_title; ?></h1>
 					</header>
@@ -30,13 +33,15 @@ global $post, $pagename;
 					<?php get_template_part( 'content', 'page' ); ?>
 				<?php endwhile; // end of the loop. ?>
 
-				<?php $default_dir = "/lrhoa-docs/" . $pagename . "/"; ?>
+				<?php $default_dir = '/lrhoa-docs/' . $pagename . '/'; ?>
 				<div class="lrhoa_member_data">
-					<?php if ( ( is_user_logged_in() && current_user_can( 'members' ) ) ||
-					           ( is_user_logged_in() && 'minutes' === $pagename ) ||
-					           'public-documents' === $pagename ): ?>
-						<?php include_once( locate_template( './templates/list-files.php' ) ); ?>
-					<?php else: ?>
+					<?php
+					if ( ( is_user_logged_in() && current_user_can( 'members' ) ) ||
+							   ( is_user_logged_in() && 'minutes' === $pagename ) ||
+							   'public-documents' === $pagename ) :
+						?>
+						<?php include_once locate_template( './templates/list-files.php' ); ?>
+					<?php else : ?>
 						<p>You do not have permission to view this page.</p>
 					<?php endif ?>
 				</div>

@@ -19,13 +19,16 @@ get_header(); ?>
 		<div id="primary">
 			<div id="content" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php
+			while ( have_posts() ) :
+				the_post();
+				?>
 				<?php get_template_part( 'content', 'page' ); ?>
 			<?php endwhile; // end of the loop. ?>
 
 
-<?php $default_dir = "/lrhoa-docs/"; ?>
-<?php include( locate_template( './templates/list-files.php' ) ); ?>
+<?php $default_dir = '/lrhoa-docs/'; ?>
+<?php require locate_template( './templates/list-files.php' ); ?>
 
 			</div><!-- #content -->
 		</div><!-- #primary -->

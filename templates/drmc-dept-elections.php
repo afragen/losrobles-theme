@@ -12,27 +12,25 @@
  * @package WordPress
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
-*/
+ */
 
-use Fragen\DRMC;
-
-$terms        = Fragen\DRMC\Base::get_department();
-$args         = array(
-					'post_type' => 'drmc_voting',
-					'tax_query' => array(
-						array(
-							'taxonomy' => 'department',
-							'field'    => 'slug',
-							'terms'    => $terms,
-						),
-						array(
-							'taxonomy' => 'department',
-							'field'    => 'slug',
-							'terms'    => array( 'voting-over' ),
-							'operator' => 'NOT IN',
-						),
-					)
-				);
+$terms = Fragen\DRMC\Base::get_department();
+$args  = [
+	'post_type' => 'drmc_voting',
+	'tax_query' => [
+		[
+			'taxonomy' => 'department',
+			'field'    => 'slug',
+			'terms'    => $terms,
+		],
+		[
+			'taxonomy' => 'department',
+			'field'    => 'slug',
+			'terms'    => [ 'voting-over' ],
+			'operator' => 'NOT IN',
+		],
+	],
+];
 
 get_header(); ?>
 
@@ -51,15 +49,18 @@ get_header(); ?>
 			</div>
 			<?php $my_query = new \WP_Query( $args ); ?>
 
-			<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+			<?php
+			while ( $my_query->have_posts() ) :
+				$my_query->the_post();
+				?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
-				<?php 
+				<?php
 					global $withcomments;
-					$withcomments = true; 
+					$withcomments = true;
 					comments_template();
 				?>
-		 
+
 			<?php endwhile; // end of the loop. ?>
 
 

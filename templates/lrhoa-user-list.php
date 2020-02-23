@@ -3,7 +3,6 @@
 Template Name: Users List
 */
 
-
 get_header(); ?>
 
 <div id="primary" class="content-area">
@@ -16,12 +15,14 @@ get_header(); ?>
 				<div class="lrhoa_member_data">
 					<ul>
 						<?php
-						$users = new WP_User_Query( array(
+						$users = new WP_User_Query(
+							[
 								'meta_key' => 'last_name',
 								'orderby'  => 'meta_value',
 								'fields'   => 'all_with_meta',
 								'role'     => 'members',
-						) );
+							]
+						);
 						if ( ! empty( $users->results ) && is_user_logged_in() && current_user_can( 'members' ) ) {
 							foreach ( $users->results as $user ) {
 								echo '<li><a href="' . esc_url( get_author_posts_url( $user->ID ) ) . '">' . esc_attr( $user->first_name ) . ' ' . esc_attr( $user->last_name ) . '</a></li>';
