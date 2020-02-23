@@ -6,7 +6,10 @@
 get_header();
 global $author_name;
 
-$member = get_user_by( 'slug', $author_name );
+$member        = get_user_by( 'slug', $author_name );
+$username      = $member->get( 'user_login' );
+$street_number = explode( '-', $username );
+$street_number = array_shift( $street_number );
 
 ?>
 
@@ -21,7 +24,7 @@ $member = get_user_by( 'slug', $author_name );
 						<?php
 						if ( is_user_logged_in() && current_user_can( 'members' ) ) {
 							print esc_attr( $member->data->display_name ) . '<br>';
-							print esc_attr( $member->get( 'lrhoa_street_number' ) ) . ' Los Robles<br>';
+							print esc_attr( $street_number ) . ' Los Robles<br>';
 							print esc_attr( $member->get( 'lrhoa_phone_number' ) ) . '<br>';
 							print '<a href="mailto:">' . esc_attr( $member->data->user_email ) . '</a><br>';
 
