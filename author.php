@@ -6,10 +6,13 @@
 get_header();
 global $author_name;
 
-$member        = get_user_by( 'slug', $author_name );
-$username      = $member->get( 'user_login' );
-$street_number = explode( '-', $username );
-$street_number = array_shift( $street_number );
+$member           = get_user_by( 'slug', $author_name );
+$username         = $member->get( 'user_login' );
+$street_number    = explode( '-', $username );
+$street_number    = array_shift( $street_number );
+$empty_phone      = '(xxx) xxx-xxxx';
+$phone_number     = ! empty( $member->get( 'lrhoa_phone_number' ) ) ? $member->get( 'lrhoa_phone_number' ) : $empty_phone;
+$emergency_number = ! empty( $member->get( 'lrhoa_emergency_number' ) ) ? $member->get( 'lrhoa_emergency_number' ) : $empty_phone;
 
 ?>
 
@@ -23,12 +26,12 @@ $street_number = array_shift( $street_number );
 					<div class="lrhoa_member_data">
 						<?php
 						if ( is_user_logged_in() && current_user_can( 'members' ) ) {
-							print esc_attr( $member->data->display_name ) . '<br>';
+							print esc_attr( $member->get( 'display_name' ) ) . '<br>';
 							print esc_attr( $street_number ) . ' Los Robles<br>';
-							print esc_attr( $member->get( 'lrhoa_phone_number' ) ) . '<br>';
-							print '<a href="mailto:">' . esc_attr( $member->data->user_email ) . '</a><br>';
+							print esc_attr( $phone_number ) . '<br>';
+							print '<a href="mailto:">' . esc_attr( $member->get( 'user_email' ) ) . '</a><br>';
 
-							print 'Emergency Contact: ' . esc_attr( $member->get( 'lrhoa_emergency_number' ) ) . '<br>';
+							print 'Emergency Contact: ' . esc_attr( $emergency_number ) . '<br>';
 						} else {
 							print 'You must log in to view this page.';
 						}
