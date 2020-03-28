@@ -1,3 +1,6 @@
+## 0.5.1
+* add sanity check in `author.php` for `$member instanceof \WP_User`
+
 ## 0.5
 * update `author.php` for removal of Pods and info in Los Robles HOA Governance plugin
 

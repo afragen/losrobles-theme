@@ -6,7 +6,10 @@
 get_header();
 global $author_name;
 
-$member           = get_user_by( 'slug', $author_name );
+$member = get_user_by( 'slug', $author_name );
+if ( ! $member instanceof \WP_User ) {
+	return;
+}
 $username         = $member->get( 'user_login' );
 $street_number    = explode( '-', $username );
 $street_number    = array_shift( $street_number );
