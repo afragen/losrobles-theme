@@ -1,3 +1,6 @@
+## 0.6.0 / 2022-11-20
+* only members can see all member docs
+
 ## 0.5.1
 * add sanity check in `author.php` for `$member instanceof \WP_User`
 

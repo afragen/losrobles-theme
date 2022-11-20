@@ -36,9 +36,8 @@ global $post, $pagename;
 				<?php $default_dir = '/lrhoa-docs/' . $pagename . '/'; ?>
 				<div class="lrhoa_member_data">
 					<?php
-					if ( ( is_user_logged_in() && current_user_can( 'members' ) ) ||
-						( is_user_logged_in() && 'minutes' === $pagename ) ||
-						'public-documents' === $pagename ) :
+					if ( ( is_user_logged_in() && current_user_can( 'members' ) )
+						|| 'public-documents' === $pagename ) :
 						?>
 						<?php include_once locate_template( './templates/list-files.php' ); ?>
 					<?php else : ?>
