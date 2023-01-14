@@ -33,7 +33,7 @@ echo "\t" . '<ul>' . "\r\n\t";
 $directory_array = list_directory( WP_CONTENT_DIR . $default_dir );
 
 global $pagename;
-if ( 'minutes' === $pagename ) {
+if ( in_array( $pagename, [ 'minutes', 'board-documents' ] ) ) {
 	rsort( $directory_array );
 }
 foreach ( $directory_array as $fn ) {

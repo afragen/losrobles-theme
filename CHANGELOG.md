@@ -1,3 +1,7 @@
+## 0.7.0 / 2023-01-14
+* added board member capability
+* added board member document folder
+
 ## 0.6.0 / 2022-11-20
 * only members can see all member docs
 
