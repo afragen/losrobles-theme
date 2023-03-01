@@ -17,10 +17,11 @@ get_header(); ?>
 						<?php
 						$users = new WP_User_Query(
 							[
-								'meta_key' => 'last_name',
-								'orderby'  => 'meta_value',
-								'fields'   => 'all_with_meta',
-								'role'     => 'members',
+								'meta_key'         => 'last_name',
+								'orderby'          => 'meta_value',
+								'fields'           => 'all_with_meta',
+								'role__in'         => [ 'members', 'board_member' ],
+								'nicename__not_in' => [ 'member', 'board-member' ],
 							]
 						);
 						if ( ! empty( $users->results ) && is_user_logged_in() && current_user_can( 'members' ) ) {

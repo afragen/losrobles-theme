@@ -1,3 +1,6 @@
+## 0.8.0 / 2023-02-28
+* fix WP_Query for member listing
+
 ## 0.7.0 / 2023-01-14
 * added board member capability
 * added board member document folder
