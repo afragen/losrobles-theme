@@ -19,7 +19,6 @@ get_header(); ?>
 							[
 								'meta_key'         => 'last_name',
 								'orderby'          => 'meta_value',
-								'fields'           => 'all_with_meta',
 								'role__in'         => [ 'members', 'board_member' ],
 								'nicename__not_in' => [ 'member', 'board-member' ],
 							]
