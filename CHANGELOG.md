@@ -1,3 +1,6 @@
+## 0.8.2 / 2023-11-28
+* strip letters from username street number part
+
 ## 0.8.1 / 2023-02-28
 * fix WP_Query for member listing
 

@@ -13,6 +13,7 @@ if ( ! $member instanceof \WP_User ) {
 $username         = $member->get( 'user_login' );
 $street_number    = explode( '-', $username );
 $street_number    = array_shift( $street_number );
+$street_number    = preg_replace( '/[a-z]/', '', $street_number );
 $empty_phone      = '(xxx) xxx-xxxx';
 $phone_number     = ! empty( $member->get( 'lrhoa_phone_number' ) ) ? $member->get( 'lrhoa_phone_number' ) : $empty_phone;
 $emergency_number = ! empty( $member->get( 'lrhoa_emergency_number' ) ) ? $member->get( 'lrhoa_emergency_number' ) : $empty_phone;
