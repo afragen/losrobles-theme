@@ -1,3 +1,6 @@
+## 0.8.3 / 2024-01-22
+* add dog_house to user list
+
 ## 0.8.2 / 2023-11-28
 * strip letters from username street number part
 
