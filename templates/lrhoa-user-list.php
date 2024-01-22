@@ -19,8 +19,8 @@ get_header(); ?>
 							[
 								'meta_key'         => 'last_name',
 								'orderby'          => 'meta_value',
-								'role__in'         => [ 'members', 'board_member', 'dog_house' ],
-								'nicename__not_in' => [ 'member', 'board-member', 'dog_house' ],
+								'role__in'         => [ 'members', 'board_member', 'member_noprivs' ],
+								'nicename__not_in' => [ 'member', 'board-member', 'member_noprivs' ],
 							]
 						);
 						if ( ! empty( $users->results ) && is_user_logged_in() && current_user_can( 'members' ) ) {
